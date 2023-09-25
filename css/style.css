@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --text-color: #ffffff;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --background-url: url(../assets/bg-mobile.jpg);
+  --switch-bg-url: url(../assets/moon-stars.svg);
+  --highlight-color: #ffffff;
+}
+
+.light-mode{
+  --text-color: #000000;
+  --stroke-color: rgba(136, 8, 138, 0.887);
+  --surface-color: rgba(160, 34, 154, 0.1);
+  --background-url: url(../assets/bg-mobile-light.jpg);
+  --switch-bg-url: url(../assets/sun.svg)
+}
+
+body {
+  background: var(--background-url) no-repeat top center/cover;
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+a{
+  color: var(--text-color);
+}
+
+div.container {
+  width: 100%;
+  max-width: 360px;
+  height: 250px;
+  margin: 0 auto 2em;
+}
+
+div.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke-color);
+  display: block;
+  margin: 40px auto 20px;
+}
+
+div.profile h3#username {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  text-align: center;
+}
+
+div.switch-button{
+  margin: 1em auto;
+  position: relative;
+  width: 62px;
+}
+
+.switch-button button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  animation: switch-slide-back 0.3s;
+}
+
+.light-mode .switch-button button{
+  animation: switch-slide-in 0.5s forwards;
+  background-color: var(--stroke-color);
+  
+}
+
+.switch-button span{
+  width: 62px;
+  height: 24px;
+  display: block;
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+.switch-button button:hover{
+  outline: 9px solid var(--surface-color);
+  cursor: pointer;
+}
+
+main div.links-block{
+  width: 340px;
+  height: 300px;
+  margin: 0 auto 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main div.links-block ul{
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  text-align: center;
+  padding-inline-start: 0;
+  gap: 2em;
+}
+
+main div.links-block ul li{
+  font-family: "Inter", sans-serif;
+  padding: 12px 120px;
+  border-radius: 8px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color); 
+  list-style-type: none;
+}
+
+main div ul a{
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.5s;
+}
+
+ul a:hover{
+  background-color: var(--surface-color);
+}
+
+footer.footer{
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 340px;
+  height: 100px;
+}
+
+footer div.icons{
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+}
+
+ion-icon{
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.5s;
+  
+}
+
+ion-icon:hover{
+  background-color: var(--stroke-color);
+  color: black;
+}
+
+footer p span{
+  padding-bottom: 12px;
+  text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+  :root{
+    --background-url: url(../assets/bg-desktop.jpg);
+  }
+
+  .light-mode{
+    --background-url: url(../assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes switch-slide-in{
+  from {
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes switch-slide-back{
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
+  }
+}
